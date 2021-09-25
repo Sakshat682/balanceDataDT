@@ -29,9 +29,10 @@ def classify():
             return render_template('index.html',classification_text="Please Enter Valid Right Distance")
         else:
             RD = int(request.form['RD'])
-        LT = LW*LD
-        RT = RW*RD
-        classification=model.predict([[LT,RT]])
+        # LT = LW*LD
+        # RT = RW*RD
+        # classification=model.predict([[LT,RT]])
+        classification=model.predict([[LW,LD,RW,RD]])
         output=classification[0]
         if output=='R':
             return render_template('index.html',classification_text="Right side is more heavy")
