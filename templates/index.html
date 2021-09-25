@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="outer">
+        <form action="{{ url_for('classify')}}" method="post">
+            <h1 style="color: black;">CLASSIFICATION</h1>
+            <div class="grid-container">
+                <div class="grid-child purple">
+                    <h3>Left Weight</h3>
+                    <input id="first" name="LW" type="number ">
+                    <h3>Left Distance</h3>
+                    <input id="second" name="LD" type="number ">
+                </div>
+                <div class="grid-child purple">
+                    <h3>Right Weight</h3>
+                    <input id="third" name="RW" type="number ">
+                    <h3>Right Distance</h3>
+                    <input id="fourth" name="RD" type="number ">
+                </div>
+            </div>
+            <button style="margin-top: 15%;" id="sub" type="submit "><b>Balance?</b></button>
+            <br>
+        </form>
+        <h1 style="color: rgb(170, 128, 13); margin-top: 100px;">{{ classification_text }}<h3>
+    </div>
+
+
+    <style>
+        .grid-container {
+            margin-top: 15%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 20px;
+        }
+
+        body {
+            background-color: lightslategray;
+            text-align: center;
+            padding: 0px;
+        }
+
+        #outer {
+            background-image: url("https://www.maxpixel.net/static/photo/1x/Scale-Gold-Justice-Balance-Weight-Libra-306515.png");
+            background-color: #057da1;
+            color: rgb(14, 10, 3);
+            background-repeat: no-repeat;
+            background-size: 600px;
+            background-position-y: 100px;
+            width: 600px;
+            height: 800px;
+            border: 2px solid;
+            margin-left: 28%;
+        }
+        #sub {
+            width: 120px;
+            height: 43px;
+            text-align: center;
+            border-radius: 14px;
+            font-size: 18px;
+        }
+
+        #sub:hover {
+            background-color: rgb(173, 96, 8);
+        }
+
+        #first {
+            border-radius: 14px;
+            height: 25px;
+            font-size: 20px;
+            text-align: center;
+        }
+
+        #second {
+            border-radius: 14px;
+            height: 25px;
+            font-size: 20px;
+            text-align: center;
+        }
+
+        #third {
+            border-radius: 14px;
+            height: 25px;
+            font-size: 20px;
+            text-align: center;
+        }
+
+        #fourth {
+            border-radius: 14px;
+            height: 25px;
+            font-size: 20px;
+            text-align: center;
+        }
+    </style>
+</body>
+
+</html>
