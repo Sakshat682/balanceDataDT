@@ -3,7 +3,7 @@ from flask import Flask, render_template, request
 # import requests
 import pickle
 # import numpy as np
-import sklearn
+# import sklearn
 app = Flask(__name__)
 model = pickle.load(open('decision_trees_model.pkl', 'rb'))
 @app.route('/',methods=['GET'])
@@ -32,14 +32,18 @@ def classify():
             RD = int(request.form['RD'])
         LT = LW*LD
         RT = RW*RD
+        print(LT, RT)
         classification=model.predict([[LT,RT]])
+        print(classification)
         output=classification[0]
-        if output==2:
+        print(output)
+        if output=='R':
             return render_template('index.html',classification_text="Right side is more heavy")
-        elif output==1:
+        elif output=='L':
             return render_template('index.html',classification_text="Left side is more heavy")
-        elif output==0:
+        elif output=='B':
             return render_template('index.html',classification_text="It is balanced")
+        return render_template('index.html',classification_text="Not valid Output")
     else:
         return render_template('index.html')
 
